@@ -1,0 +1,142 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+//Typography
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.1;
+}
+h2 {
+	font-size: 1.8em;
+	letter-spacing: 0.5px;
+	font-weight: 480;
+}
+//Navbar
+.navbar {
+	min-height: 40px;
+	height: 40px;
+	line-height: 40px;
+	background-color: #cccccc;
+	//background-color: #eaeaea;
+	margin-bottom: 10px;	
+	#logo {
+		font-size: 1.6em;
+		//color: black;
+		color: white;
+		letter-spacing: -1px;
+		padding-top: 8px;
+		font-weight: bold;
+		padding-top: 0px; 
+		padding-bottom: 0px; 
+		display: inline-block;
+		vertical-align: middle;	
+	}
+	.nav .dropdown-toggle {
+		padding-top: 10px; 
+		padding-bottom: 10px;	
+		.btn-default{
+			padding-top: 0px; 
+			padding-bottom: 0px; 
+			vertical-align: middle;
+			background-color: white;
+			border-color: black;
+		}
+	}
+}
+//Jumbotron
+.jumbotron{
+	height: 450px;
+	background-image: url(jumbo_pizza.jpg);
+	background-size: cover;
+	background-position: center center;
+	padding-bottom: 20px;
+	padding-top: 120px;
+	text-align: center;
+	color: white;
+	#jumboheader {
+		font-size: 3em;
+		letter-spacing: -2px;
+		margin-bottom: 80px;
+	}
+	#jumbo-caption{
+		font-size: 1.8em;
+		letter-spacing: 1px;
+		font-weight: 250;
+	}
+	.btn-transparent {
+		background: transparent;
+		border: 2px solid white;
+		margin-top: 20px;
+		margin-bottom: 15px;
+		&:hover { 
+			color:grey;
+			border: 2px solid grey;
+			background: transparent;
+		}
+	}
+	#login {
+		color: white;
+	}	
+}
+//about me box
+.about-me-box{
+	border:none ;
+	background-color: #eaeaea;
+	text-align: center;
+	height: 120px;
+	line-height: 120px;
+	margin-bottom: 30px;
+	#about-me{
+		display: inline-block;
+		vertical-align: middle;
+	}
+}	
+//Thumbnails
+#latest-news{
+	font-size: 1.8em;
+	letter-spacing: 0.5px;
+}
+#news-caption{
+	font-size: 1.2em;
+	letter-spacing: 0.5px;
+	color: grey;
+}
+hr{
+	margin-top: 10px;
+
+}
+.thumbimages{
+	padding-top: 15px;
+}
+
+//Footer
+.footer{
+	background-color: grey;
+	height: 150px;
+	padding-top:20px;
+	#logo {
+		font-size: 1.6em;
+		color: black;
+		letter-spacing: -1px;
+		padding-top: 8px;
+		font-weight: bold;
+		padding-top: 0px; 
+		padding-bottom: 0px; 	
+		&:hover {
+			color: black;
+			text-decoration: none;
+		}
+	}
+	ul{
+		float: right;
+		list-style: none;
+		padding-top: 30px;
+		li{
+			
+			float: left;
+			margin-left: 30px;
+			a{
+				color: white;
+			}
+		}
+	}
+}
