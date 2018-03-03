@@ -1,6 +1,20 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+//Mixins
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+//Misc
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
 //Typography
 h1, h2, h3, h4, h5, h6 {
 	line-height: 1.1;
@@ -112,7 +126,8 @@ hr{
 .footer{
 	background-color: grey;
 	height: 150px;
-	padding-top:20px;
+	padding-top: 20px;
+	margin-top: 20px;
 	#logo {
 		font-size: 1.6em;
 		color: black;
@@ -139,4 +154,34 @@ hr{
 			}
 		}
 	}
+}
+
+//Forms
+#signup-header{
+	letter-spacing: 1px;
+	font-weight: 250;
+	text-align: center;
+	margin-bottom: 20px;
+}
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+input {
+  height: auto !important;
+}
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
 }
