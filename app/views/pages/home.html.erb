@@ -3,9 +3,13 @@
   <div class="container">	
     <h1 id="jumboheader"><font color="green">Piz</font>za<font color="red">Me</font></h1>
     <h2 id="jumbo-caption">Never eat boring pizza again</h2>
+	<% if logged_in? %>
+	<span class="btn btn-primary btn-transparent btn-lg">Welcome back!</span>
+	<% else %>
 	<%= link_to "Signup", signup_path, class: "btn btn-primary btn-transparent btn-lg" %>
 	<br>
-	<%= link_to "Login", signup_path, id: "login" %>
+	<%= link_to "Log in", login_path, id: "login" %>
+	<% end %>
   </div>
 </div>
 <!--ABOUT ME BOX-->
