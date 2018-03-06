@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def show
-    @user = User.find(params[:id])
+   # @user = User.find(params[:id])
   end
   
   def new
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params)
+    @user.profile_image = "https://cdn4.iconfinder.com/data/icons/food-and-drink-1-2/64/pizza-food-italian-meal-256.png"
     if @user.save
       log_in @user
       flash[:success] = "Sign up successful!"

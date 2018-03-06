@@ -8,6 +8,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  validates :profile_image, presence: true
   
   # Returns the hash digest of the given string.
   def User.digest(string)
@@ -37,6 +38,15 @@ class User < ApplicationRecord
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
+  end
+  
+  def self.find_or_create_by_omniauth(auth)
+      oauth_email = auth["info"]["email"]
+      oauth_name = auth["info"]["name"]
+      oauth_image = auth["info"]["image"]
+      self.where(:email => oauth_email, :name => oauth_name).first_or_create do |user|
+        user.password = SecureRandom.hex 
+      end
   end
   
 end
