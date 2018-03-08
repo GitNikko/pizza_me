@@ -1,0 +1,9 @@
+<div>
+	<ul>
+		<% @spots.map do |a| %>
+		<% if a.rating > 4.0 %>
+		<li><%= link_to a.name, {:controller => "restaurants", :action => "show", :id => a.place_id} %></li>
+		<% end %>
+		<% end %>
+	</ul>
+</div>

@@ -54,9 +54,6 @@ h2 {
 		display: inline-block;
 		vertical-align:middle;	
 	}
-	.avadiv{
-		padding-top: 0px;
-	}
 	.nav .dropdown-toggle {
 		padding-top: 10px; 
 		padding-bottom: 10px;	
@@ -102,7 +99,16 @@ h2 {
 	}
 	#login {
 		color: white;
+	}
+	.search-bar{
+		margin-top: 20px;
+		margin-bottom: 10px;
+				
 	}	
+	.test{
+		display:inline;
+	}
+
 }
 //about me box
 .about-me-box{
