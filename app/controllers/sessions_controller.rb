@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
   def create
     if auth = request.env["omniauth.auth"]
       @user = User.find_or_create_by_omniauth(auth)
-      session[:user_id] = @user.id
       if @user.profile_image != auth["info"]["image"]
         @user.update_attribute(:profile_image, auth["info"]["image"])
       end
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       user = User.find_by(email: params[:session][:email].downcase)

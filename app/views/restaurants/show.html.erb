@@ -1,2 +1,110 @@
-<h1><%= @restaurant_name %></h1>
-<div><%= image_tag @restaurant_image %></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-9 photo-div">
+			<%= image_tag(@restaurant_image, class: "main-photo") %>	
+		</div>
+		<div class="col-md-3 details-div">
+			<h5>Address:</h5>
+			<p><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <%= @restaurant_address %></p>
+			<h5>Phone:</h5>
+			<p><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <%= @restaurant_phone %></p>
+			<h5>Price:</h5>
+			<p><%= @restaurant_price %></p>
+			<h5>Rating:</h5>
+			<p><span class="glyphicon glyphicon-star" aria-hidden="true"></span> <%= @restaurant_rating %></p>
+			<% unless @open_now.nil? %>
+			<% if @open_now == true %>
+			<h6>OPEN NOW!</h6>
+			<% else %>
+			<h6>CURRENTLY CLOSED</h6>
+			<% end %>
+			<% end %>
+		</div>		
+	</div>
+</div>
+<div class="container-fluid header-div">
+	<div class="col-md-8">
+		<h1><%= @restaurant_name %></h1>
+		<h6><%= @restaurant_location %></h6>
+	</div>
+</div>
+<div class="container">
+	<div class"row">
+		<div class="col-md-8 reviews-div">
+			<% unless @reviews["reviews"][0].nil? %>
+			<div class="each-review">
+				<% unless review_image(0).nil? %>
+					<%= image_tag(review_image(0), class: "review-image") %> 
+				<% end %>
+				<% unless review_name(0).nil? %>
+					<span class="review-name"><%= review_name(0) %> ||</span> 
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+				<% end %>
+				<% unless review_rating(0).nil?%>
+					<%= review_rating(0)%>
+				<% end %>
+				<div>
+					<% unless review_text(0).nil?%>
+						<%= review_text(0) %>
+					<% end %>
+				</div>
+			</div>
+			<hr>
+			<% end %>
+			<% unless @reviews["reviews"][1].nil? %>
+			<div class="each-review">
+				<% unless review_image(1).nil? %>
+					<%= image_tag(review_image(1), class: "review-image") %> 
+				<% end %>
+				<% unless review_name(1).nil? %>
+					<span class="review-name"><%= review_name(1) %> ||</span> 
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+				<% end %>
+				<% unless review_rating(1).nil?%>
+					<%= review_rating(1)%>
+				<% end %>
+				<div>
+					<% unless review_text(1).nil?%>
+						<%= review_text(1) %>
+					<% end %>
+				</div>
+			</div>
+			<hr>
+			<% end %>
+			<% unless @reviews["reviews"][2].nil? %>
+			<div class="each-review">
+				<% unless review_image(2).nil? %>
+					<%= image_tag(review_image(2), class: "review-image") %> 
+				<% end %>
+				<% unless review_name(2).nil? %>
+					<span class="review-name"><%= review_name(2) %> ||</span> 
+					<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+				<% end %>
+				<% unless review_rating(2).nil?%>
+					<%= review_rating(2) %>
+				<% end %>
+				<div>
+					<% unless review_text(2).nil?%>
+						<%= review_text(2) %>
+					<% end %>
+				</div>
+			</div>
+			<hr>
+			<% end %>		
+		</div>
+		<div class="col-xs-6 col-md-4">
+			<div class="thumb-div">
+				<% unless restaurant_photo(1).nil? %>
+			    	<%= image_tag(restaurant_photo(1), class: "thumbnail") %>
+				<% end %>
+			</div>
+			<div class="thumb-div">
+				<% unless restaurant_photo(2).nil? %>
+			    	<%= image_tag(restaurant_photo(2), class: "thumbnail") %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+	<p><%= @reviews %></p>
+	<p><%= @spot %></p>

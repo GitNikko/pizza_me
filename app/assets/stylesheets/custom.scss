@@ -73,7 +73,7 @@ h2 {
 	background-size: cover;
 	background-position: center center;
 	padding-bottom: 20px;
-	padding-top: 120px;
+	padding-top: 100px;
 	text-align: center;
 	color: white;
 	#jumboheader {
@@ -100,15 +100,22 @@ h2 {
 	#login {
 		color: white;
 	}
+	.search-div{
+		width: 300px;
+		//border: 2px solid black;
+		margin: 0 auto;
+		.input-bar{
+			
+		}
+	}
+	.container{
+		//border: 2px solid black;
+	}
 	.search-bar{
 		margin-top: 20px;
 		margin-bottom: 10px;
-				
+		
 	}	
-	.test{
-		display:inline;
-	}
-
 }
 //about me box
 .about-me-box{
@@ -132,9 +139,11 @@ h2 {
 	font-size: 1.2em;
 	letter-spacing: 0.5px;
 	color: grey;
+	
 }
 hr{
 	margin-top: 10px;
+	
 
 }
 .thumbimages{
@@ -232,4 +241,108 @@ input {
 }
 .social-buttons{
 	text-align: center;
+}
+
+//SHOW PAGE
+.photo-div{
+	height: 350px;
+	border: 1px solid #cccccc;
+	padding-left: 0px;
+	padding-right: 0px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius:10px;
+	.main-photo{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-top-left-radius: 10px;
+		border-bottom-left-radius:10px;
+	}	
+}
+.details-div{
+	height: 350px;
+	border: 1px solid #cccccc;
+	background-color: #f7f7f7;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius:10px;
+	padding-top: 20px;
+}
+.header-div{
+	height: 120px;
+	//border: 1px solid grey;
+	//background-color: #eaeaea;
+	background-image: image-url("symphony.png");
+	margin-top: -20px;
+	padding-top:30px;
+}
+.reviews-div{
+	//height: 500px;
+	//border: 1px solid #cccccc;
+	margin-top: 20px;
+	padding-left: 50px;
+	.each-review{
+		//border: 1px solid #cccccc;
+		margin-bottom: 20px;
+		.review-image{
+			height: 60px;
+			width: 60px;
+			object-fit: cover;
+			border-radius: 50%;
+		}
+		.review-name{
+			font-weight: bold;
+		}
+	}
+}
+.thumb-div{
+	height: 300px;
+	margin-bottom: 40px;
+	margin-top: -20px;
+	.thumbnail{
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.results-header-div{
+	height: 120px;
+	background-image: image-url("symphony.png");
+	padding-left: 100px;
+	padding-top: 20px;
+}
+.each-result{
+	border: 1px solid #cccccc;
+	height: 150px;
+	margin-top: 20px;
+	border-radius: 10px;
+	background-color: #f7f7f7;
+}
+.results-list{
+	list-style: none;
+}
+.index-image{
+	height: 100%;
+	width: 150px;
+	object-fit: cover;
+	float: left;
+	margin-right: 20px;
+	border-radius: 10px;
+}
+.result-content{
+	margin-top: 15px;
+	
+}
+.result-name{
+	font-size: 1.3em;
+	letter-spacing: -0.5px;
+	font-weight: bold;
+	margin-bottom: 10px;	
+}
+.glyphicon-star{
+	color: red;
+}
+.price-icon{
+	//color: gold;
+	font-size: 1.1em;
+	
 }

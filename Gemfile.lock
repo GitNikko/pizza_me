@@ -70,6 +70,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    domain_name (0.5.20170404)
+      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.2.1)
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
@@ -98,6 +100,15 @@ GEM
       guard-compat (~> 1.2)
       minitest (>= 3.0)
     hashie (3.5.7)
+    http (3.0.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (>= 2.0.0.pre.pre2, < 3)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.1.0)
+    http_parser.rb (0.6.0)
     httparty (0.16.0)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
@@ -238,6 +249,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -262,6 +276,7 @@ DEPENDENCIES
   google_places
   guard
   guard-minitest
+  http
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
