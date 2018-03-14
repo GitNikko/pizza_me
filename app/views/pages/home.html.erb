@@ -1,25 +1,22 @@
 <!--JUMBOTRON-->
 <div class="jumbotron">
   <div class="container">	
-    <h1 id="jumboheader"><font color="green">Piz</font>za<font color="red">Me</font></h1>
-    <h2 id="jumbo-caption">Never eat boring pizza again</h2>
+    <h2 id="jumbo-caption">Find your Pizza</h2>
 	<% if logged_in? %>
-	<span class="btn btn-primary btn-transparent btn-lg">Welcome back!</span>
-	<% else %>
-	<%= link_to "Signup", signup_path, class: "btn btn-primary btn-transparent btn-lg" %>
-	<br>
-	<%= link_to "Log in", login_path, id: "login" %>
+	<p class="btn btn-primary btn-transparent btn-lg">Welcome back!</p>
+	
+	
 	<% end %>
   
 	
 		    <div class="search-div">
+				<span class="glyphicon glyphicon-search jumbo-search-icon" aria-hidden="true"></span>
 			  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
-			  										class: "input-group search-bar") do %>
-			  <%= text_field_tag :search, params[:search], placeholder: "Enter your suburb..", 															class: "form-control" %>
-			  <span class="input-group-btn">
-			    <%= submit_tag "Go!", class: "btn btn-default"%> 
+			  										class: "input-group search-container") do %>
+			  <%= text_field_tag :search, params[:search], placeholder: "Enter your suburb..", 															class: "form-control search-bar" %>
+			  
 				<% end %> 
-			  </span>
+			  
 		    </div>
 	</div>
   

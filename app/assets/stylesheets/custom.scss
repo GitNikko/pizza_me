@@ -25,46 +25,117 @@ h2 {
 	font-weight: 480;
 }
 //Navbar
-.navbar {
-	min-height: 40px;
-	height: 40px;
-	line-height: 40px;
-	background-color: #cccccc;
-	//background-color: #eaeaea;
-	margin-bottom: 10px;
-	position: relative;	
-	#logo {
-		font-size: 1.6em;
-		//color: black;
-		color: white;
-		letter-spacing: -1px;
-		padding-top: 8px;
-		font-weight: bold;
-		padding-top: 0px; 
-		padding-bottom: 0px; 
-		display: inline-block;
-		vertical-align: middle;	
-	}
-	.login-status{
-		margin-right: 10px;
-		font-weight: bold;
-	}
-	.avatar{
-		border-radius: 50%;
-		display: inline-block;
-		vertical-align:middle;	
-	}
-	.nav .dropdown-toggle {
-		padding-top: 10px; 
-		padding-bottom: 10px;	
-		.btn-default{
-			padding-top: 0px; 
-			padding-bottom: 0px; 
-			vertical-align: middle;
-			background-color: white;
-			border-color: black;
+.navbar{
+	height: 80px;
+	padding: 0px;
+	border:none;
+	line-height: 80px;
+	margin: 0px;	
+	//border-bottom: 1px solid #424242;
+	.navbar-logo-div{
+		width: 145px;
+		height: 100%;
+		//border: 2px solid black;
+		float: left;
+		display: flex;
+		align-items: center;
+		.navbar-brand{
+			width: 100%;
+			font-size: 1.6em;
+			letter-spacing: -1px;
+			font-weight: bold;
+			//border: 2px solid blue;
+			text-align: center;
+			color: #db3b3b;
 		}
 	}
+	.navbar-search-div{
+		width: 42%;
+		height: 100%;
+		//border: 2px solid black;
+		float: left;
+		background-color: #efefef;
+		padding-left: 10px;
+		display: inline-flex;
+		align-items: center;
+		.nav-search-icon{
+			font-size: 1.4em;
+		}
+		.navbar-form{
+			//height: 100%;
+			width: 90%;
+			//border: 2px solid red;
+			padding-top: 10px;
+			padding-left: 0px;
+		}
+		.navbar-search{
+			font-size: 1.4em;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			border: none;
+			background-color: #efefef;
+			-webkit-box-shadow: none;
+			box-shadow: none;
+			-webkit-transition: none;
+			-o-transition: none;
+			transition: none;
+			//border: 2px solid green;
+			
+		}
+	}
+	.navbar-user-links{
+		width: 35%;
+		height: 100%;
+		//border: 2px solid black;
+		float: right;
+		padding-right: 10px;
+		.navbar-nav{
+			height: 100%;
+			//border: 2px solid blue;
+			list-style: none;
+			padding-right: 40px;
+			
+			float: right;
+			display: inline-flex;
+			align-items: center;
+			.social-icons{
+				margin-left: 15px;
+				font-size: 2.5em;
+				color: #39acd6;
+			}
+		}
+		.login-status{
+			//margin-right: 10px;
+			font-weight: bold;
+			
+			//color: white;
+		}
+		.avatar{
+			border-radius: 50%;
+			margin-left: 10px;
+			//display: inline-block;
+			//vertical-align:middle;	
+		}
+		.menu-button{
+			border: none;
+			font-size: 0.7em;
+			color: #9e9e9e;
+			margin-left: 35px;
+		}
+		.login-nav{
+			color: #9e9e9e;
+			font-size: 1.0em;
+			font-weight: 550;
+			letter-spacing:1px;
+		}				
+	}
+	
+}
+.sub-nav{
+	height: 1px;
+	padding: 0px;
+	margin: 0px;
+	background-color: #cccccc;
 }
 //Jumbotron
 .jumbotron{
@@ -73,7 +144,7 @@ h2 {
 	background-size: cover;
 	background-position: center center;
 	padding-bottom: 20px;
-	padding-top: 100px;
+	padding-top: 140px;
 	text-align: center;
 	color: white;
 	#jumboheader {
@@ -82,38 +153,58 @@ h2 {
 		margin-bottom: 80px;
 	}
 	#jumbo-caption{
-		font-size: 1.8em;
+		font-size: 2.2em;
 		letter-spacing: 1px;
-		font-weight: 250;
+		font-weight: 550;
+		margin-bottom: 25px;
 	}
 	.btn-transparent {
 		background: transparent;
 		border: 2px solid white;
 		margin-top: 20px;
 		margin-bottom: 15px;
-		&:hover { 
-			color:grey;
-			border: 2px solid grey;
-			background: transparent;
-		}
+		
 	}
 	#login {
 		color: white;
 	}
 	.search-div{
-		width: 300px;
+		height: 70px;
+		width: 500px;
 		//border: 2px solid black;
 		margin: 0 auto;
-		.input-bar{
-			
+		display: flex;
+		align-items: center;
+		background-color: white;
+		padding-left: 10px;
+		opacity: 0.8;
+		.jumbo-search-icon{
+			float:left;
+			color: grey;
+			font-size:1.7em;
 		}
 	}
-	.container{
-		//border: 2px solid black;
+	.search-container{
+		height: 100%;
+		width: 90%;
+		//border: 2px solid green;
+		display: flex;
+		align-items: center;
+		padding-bottom: 5px;
+		
 	}
 	.search-bar{
+		font-size: 1.4em;
 		margin-top: 20px;
 		margin-bottom: 10px;
+		//border: 2px solid blue;
+		border: none;
+		background-color: white;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: none;
+		-o-transition: none;
+		transition: none;
 		
 	}	
 }
@@ -125,6 +216,7 @@ h2 {
 	height: 120px;
 	line-height: 120px;
 	margin-bottom: 30px;
+	border-radius: 10px;
 	#about-me{
 		display: inline-block;
 		vertical-align: middle;
@@ -152,7 +244,7 @@ hr{
 
 //Footer
 .footer{
-	background-color: grey;
+	background-color: #6d6d6d;
 	height: 150px;
 	padding-top: 20px;
 	margin-top: 20px;
