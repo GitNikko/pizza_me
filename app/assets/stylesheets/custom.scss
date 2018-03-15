@@ -24,6 +24,10 @@ h2 {
 	letter-spacing: 0.5px;
 	font-weight: 480;
 }
+.row{
+	//margin-right: 0px;
+}
+
 //Navbar
 .navbar{
 	height: 80px;
@@ -95,7 +99,7 @@ h2 {
 			//border: 2px solid blue;
 			list-style: none;
 			padding-right: 40px;
-			
+			margin-right: 0px;
 			float: right;
 			display: inline-flex;
 			align-items: center;
@@ -210,6 +214,9 @@ h2 {
 	}	
 }
 //about me box
+.about-me-row{
+	
+}
 .about-me-box{
 	border:none ;
 	background-color: #eaeaea;
