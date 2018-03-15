@@ -4,7 +4,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<ul class="results-list"><% @results["businesses"].map do |a| %>
+			<ul class="results-list"><% @sort_by_rating.reverse.map do |a| %>
 				<div class="each-result">
 					<% if a["image_url"].nil? %>
 					<%= link_to (image_tag("", class: "index-image")), {:controller => "restaurants", 															:action => "show", :id => a["id"]} %>
@@ -12,8 +12,8 @@
 					<%= link_to (image_tag(a["image_url"], class: "index-image")), {:controller => "restaurants", 															:action => "show", :id => a["id"]} %>
 					<% end %>
 					<div class="result-content">
-					<li class="result-name"><%= link_to "- "+a["name"], {:controller => 												"restaurants", :action => "show", :id => a["id"]} %></li>	
-					<span class="result-rating result-name"><span class="glyphicon glyphicon-star" 					aria-hidden="true"></span> <%= a["rating"]%> </span>
+					<li class="result-name"><%= link_to a["name"], {:controller => 												"restaurants", :action => "show", :id => a["id"]} %></li>	
+					<span class="result-rating result-name"><span class="fa fa-star" 					aria-hidden="true"></span> <%= a["rating"]%> </span>
 					<span>(<%= a["review_count"]%> reviews)</span>
 					<p class="price-icon"><%= a["price"]%></p>
 					<p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
@@ -23,6 +23,10 @@
 				<% end %>		
 			</ul>
 		</div>
+		<div class="col-md-3 index-sidebar-div">
+			
+		</div>
 	</div>
 </div>
+<p><%= @sort_by_rating %></p>
 <p><%= @results %></p>

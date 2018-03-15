@@ -13,6 +13,8 @@ class RestaurantsController < ApplicationController
      #@results = search("pizza", params[:search] + ) 
      
     @results = search("pizza", params[:search] + ", NSW")
+    @sort_by_rating = @results["businesses"].sort_by { |a| a["review_count"]}
+    
   end
 
   def show

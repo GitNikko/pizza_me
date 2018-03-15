@@ -3,13 +3,13 @@
     <div class="navbar-logo-div">
       <!--<a href="/root" id="logo"><font color="white">Pizza</font><font color="black">Me</font></a>-->
 	  <%= link_to "PizzaMe", root_path, class: "navbar-brand"%>
-	  
     </div>
 	<div class="navbar-search-div">	
 		<span class="glyphicon glyphicon-search nav-search-icon" aria-hidden="true"></span>
-		<form class="form-inline navbar-form">
-		      <input class="form-control navbar-search" type="search" placeholder="Search" aria-label="Search">
-		</form>
+	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
+	  										class: "form-inline navbar-form") do %>
+	  <%= text_field_tag :search, params[:search], placeholder: "Search", 															class: "form-control navbar-search" %>
+		<% end %>
 	</div>
 	<div class="container navbar-user-links">
 	<ul class="navbar-nav navbar-right">
@@ -26,14 +26,19 @@
 	      <button type="button" class="btn btn-default dropdown-toggle menu-button" data-toggle="dropdown" aria-haspopup="true" 			aria-expanded="false">
   		  <span class="fa fa-align-justify fa-3x"></span></button>
 	          <ul class="dropdown-menu">
-	            <li><a href="#">News</a></li>
 	            <li><a href="#">Pizza</a></li>
 	            <li><a href="#">About</a></li>
-	            <li role="separator" class="divider"></li>
 				<% if logged_in? %>
+					<li><%= link_to "Profile", current_user %></li>
+					<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+					<% if current_user.admin? %>
+						<li><%= link_to "All users", users_path %></li>
+					<% end %>
+					<li role="separator" class="divider"></li>	
 					<li><a href="/logout" data-method="delete">Log out</a></li>
 				<% else %>
-	            <li><a href="#">Log in</a></li>
+				<li role="separator" class="divider"></li>
+	            <li><%= link_to "Login", login_path %></li>
 				<% end %>
 	          </ul>
 		</li>

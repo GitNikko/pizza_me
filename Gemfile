@@ -15,6 +15,9 @@ gem 'omniauth-google-oauth2'
 gem 'google_places'
 gem 'http'
 gem 'font-awesome-rails'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
