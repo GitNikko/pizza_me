@@ -16,7 +16,7 @@
 	<ul class="navbar-nav navbar-right">
 		<% if logged_in? %>
 		<li class="login-nav"><%= current_user.name %></li>
-		<li><div class="avadiv"><%=link_to image_tag(current_user.profile_image, size: "40x40", class: "avatar"), 									show_path, class: "work" %></div></li>
+		<li><div class="avadiv"><%=link_to image_tag(current_user.profile_image, size: "40x40", class: "avatar"), 									current_user, class: "work" %></div></li>
 		<% else%>
 		<li><%= link_to "Log-in/Sign-up", login_path, class: "login-nav" %></li>
 		<li class="fa fa-google-plus-square fa-3x social-icons"</li>
@@ -31,7 +31,9 @@
 	            <li><a href="#">About</a></li>
 				<% if logged_in? %>
 					<li><%= link_to "Profile", current_user %></li>
+					<% unless current_user.oauth_login? %>
 					<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+					<% end %>
 					<% if current_user.admin? %>
 						<li><%= link_to "All users", users_path %></li>
 					<% end %>

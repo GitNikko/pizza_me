@@ -1,8 +1,11 @@
 class RestaurantsController < ApplicationController
   include RestaurantsHelper  
   def new
-
-    
+    @restaurant = Restaurant.new 
+  end
+  
+  def create
+    @restaurant = Restaurant.new(params[:restaurant])
   end
 
   def index

@@ -1,9 +1,9 @@
-
+<% provide(:title, current_user.name) %>
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 			<h1>
-			
+				
 				<%= image_tag current_user.profile_image %>
 				<%= current_user.name %>
 			</h1>

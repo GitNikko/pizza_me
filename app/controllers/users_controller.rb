@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def show
-   # @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
   
   def new
@@ -20,15 +20,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.profile_image = "https://cdn4.iconfinder.com/data/icons/food-and-drink-1-2/64/pizza-food-italian-meal-256.png"
     if @user.save
-      log_in @user
-      flash[:success] = "Sign up successful!"
-      redirect_to '/'
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
   end
   
   def edit
+    @user = User.find(params[:id])
   end
   
   def update

@@ -1,16 +1,14 @@
+<% provide(:title, @restaurant_name )%>
 <div class="container show-background">
 	<div class="row">
 		<div class="col-md-9 photo-div">
 			<%= image_tag(@restaurant_image, class: "main-photo") %>	
 		</div>
-		<div class="col-md-3 details-div">
-			
-			<p class="details content"><span class="fa fa-home details-icons" aria-hidden="true"></span> <%= @restaurant_address %></p>
-			
+		<div class="col-md-3 details-div">	
+			<p><span class="fa fa-home details-icons" aria-hidden="true"></span> <%= @restaurant_address %></p> 
+				
 			<p><span class="fa fa-phone details-icons" aria-hidden="true"></span> <%= @restaurant_phone %></p>
-			
 			<p class="details-icons"><%= @restaurant_price %></p>
-			
 			<p><span class="fa fa-star details-icons" aria-hidden="true"></span> <%= @restaurant_rating %></p>
 			<hr>
 			<% unless @open_now.nil? %>
@@ -34,66 +32,31 @@
 <div class="container">
 	<div class"row">
 		<div class="col-md-8 reviews-div">
-			<% unless @reviews["reviews"][0].nil? %>
-			<div class="each-review">
-				<% unless review_image(0).nil? %>
-					<%= image_tag(review_image(0), class: "review-image") %> 
+			<% @reviews["reviews"].each do |r| %>
+				<% unless r.nil? %>
+					<div class="each-review">
+						<% unless r["user"]["image_url"].nil? %>
+							<%= image_tag(r["user"]["image_url"], class: "review-image") %> 
+						<% end %>
+						<% unless r["user"]["name"].nil? %>
+							<span class="review-name"><%= r["user"]["name"] %> ||</span> 
+						<% end %>
+						<% unless r["rating"].nil? %>
+							<span class="fa fa-star" aria-hidden="true"></span>
+							<%= r["rating"]%>
+						<% end %>
+						<div>
+							<% unless r["text"].nil? %>
+								<%= r["text"] %>
+								<% if r["text"].include? "..." %>
+									<%= link_to "more", r["url"]%>
+								<% end %>
+							<% end %>
+						</div>
+					</div>
+					<hr>
 				<% end %>
-				<% unless review_name(0).nil? %>
-					<span class="review-name"><%= review_name(0) %> ||</span> 
-					<span class="fa fa-star" aria-hidden="true"></span> 
-				<% end %>
-				<% unless review_rating(0).nil?%>
-					<%= review_rating(0)%>
-				<% end %>
-				<div>
-					<% unless review_text(0).nil?%>
-						<%= review_text(0) %>
-					<% end %>
-				</div>
-			</div>
-			<hr>
 			<% end %>
-			<% unless @reviews["reviews"][1].nil? %>
-			<div class="each-review">
-				<% unless review_image(1).nil? %>
-					<%= image_tag(review_image(1), class: "review-image") %> 
-				<% end %>
-				<% unless review_name(1).nil? %>
-					<span class="review-name"><%= review_name(1) %> ||</span> 
-					<span class="fa fa-star" aria-hidden="true"></span> 
-				<% end %>
-				<% unless review_rating(1).nil?%>
-					<%= review_rating(1)%>
-				<% end %>
-				<div>
-					<% unless review_text(1).nil?%>
-						<%= review_text(1) %>
-					<% end %>
-				</div>
-			</div>
-			<hr>
-			<% end %>
-			<% unless @reviews["reviews"][2].nil? %>
-			<div class="each-review">
-				<% unless review_image(2).nil? %>
-					<%= image_tag(review_image(2), class: "review-image") %> 
-				<% end %>
-				<% unless review_name(2).nil? %>
-					<span class="review-name"><%= review_name(2) %> ||</span> 
-					<span class="fa fa-star" aria-hidden="true"></span> 
-				<% end %>
-				<% unless review_rating(2).nil?%>
-					<%= review_rating(2) %>
-				<% end %>
-				<div>
-					<% unless review_text(2).nil?%>
-						<%= review_text(2) %>
-					<% end %>
-				</div>
-			</div>
-			<hr>
-			<% end %>		
 		</div>
 		<div class="col-xs-6 col-md-4">
 			<div class="thumb-div">

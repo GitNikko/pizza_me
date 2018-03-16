@@ -11,7 +11,9 @@ User.create!(name: "Example User",
              password: "foobar",
              password_confirmation: "foobar",
              profile_image: "https://cdn4.iconfinder.com/data/icons/food-and-drink-1-2/64/pizza-food-italian-meal-256.png",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
              
              99.times do |n|
                name = Faker::Name.name
@@ -22,5 +24,7 @@ User.create!(name: "Example User",
                             email: email,
                             password: password,
                             password_confirmation: password,
-                            profile_image: profile_image )
+                            profile_image: profile_image,
+                            activated: true,
+                            activated_at: Time.zone.now)
 end

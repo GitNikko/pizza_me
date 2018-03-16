@@ -44,7 +44,7 @@ def restaurant_attributes
   @restaurant_name = @spot["name"]
   @restaurant_image = @spot["image_url"]
   @restaurant_location = @spot["location"]["city"]
-  @restaurant_address = @spot["location"]["display_address"].to_sentence
+  @restaurant_address = @spot["location"]["display_address"].join(', ')
   @restaurant_phone = @spot["display_phone"]
   @restaurant_price = @spot["price"]
   @restaurant_rating = @spot["rating"]   
@@ -55,8 +55,8 @@ end
 def restaurant_photo(array_index)
   @spot['photos'][array_index]
 end
-def review_name(array_index)
-  @reviews["reviews"][array_index]["user"]["name"]
+def review_name
+  @reviews["reviews"]["user"]["name"]
 end
 def review_image(array_index)
   @reviews["reviews"][array_index]["user"]["image_url"]

@@ -19,9 +19,11 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
-  get 'restaurants/new'
+  get 'restaurants/new', to: 'restaurants#new'
+  post 'restaurants/new', to: 'restaurants#create'
   get 'restaurants/show', to: 'restaurants#show'
   get 'restaurants/index', to: 'restaurants#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users
+  resources :account_activations, only: [:edit]
 end
