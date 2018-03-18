@@ -5,11 +5,16 @@ class SessionsController < ApplicationController
   def create
     if auth = request.env["omniauth.auth"]
       @user = User.find_or_create_by_omniauth(auth)
-      if @user.profile_image != auth["info"]["image"]
-        @user.update_attribute(:profile_image, auth["info"]["image"])
+      if @user.save
+          if @user.profile_image != auth["info"]["image"]
+            @user.update_attribute(:profile_image, auth["info"]["image"])
+          end
+        log_in @user
+        redirect_to root_path
+      else
+        flash.now[:danger] = "Account already exists with this email address"
+        render 'new'
       end
-      session[:user_id] = @user.id
-      redirect_to root_path
     else
       user = User.find_by(email: params[:session][:email].downcase)
       if user && user.authenticate(params[:session][:password])
