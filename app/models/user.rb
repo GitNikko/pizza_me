@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
   validates :name, presence: true, length: { maximum: 50 }
@@ -8,6 +8,9 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  # 'allow_nil: true' allows our edit form to only edit certain attributes while leaving the password
+  # field blank. Blank passwords for new users is still caught by the has_secure_password presence validation.
+  # This also conveniently fixes a duplicate 'blank password' error message.  
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates :profile_image, presence: true
   
@@ -30,7 +33,7 @@ class User < ApplicationRecord
   end 
   
   # Returns true if the given token matches the digest.
-  # Note that the "remember_token" argument is not the :remember_token attribute.
+  # This method has been refactored to be used by the session, activation and reset controllers.
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?
@@ -42,13 +45,13 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
   
+  # Retrieves or creates a user from the auth hash attributes
   def self.find_or_create_by_omniauth(auth)
       oauth_email = auth["info"]["email"]
       oauth_name = auth["info"]["name"]
       oauth_image = auth["info"]["image"]
       self.where(:email => oauth_email, :name => oauth_name).first_or_create do |user|
         user.password = SecureRandom.hex 
-        user.profile_image = oauth_image
         user.activated = true
         user.oauth_login = true
       end
@@ -64,15 +67,31 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
   
+  #Sets the password reset attributes.
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), reset_sent_at: Time.zone.now)
+  end
+  
+  # Sends password reset email.
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+  
+  # Returns true if a password reset has expired
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+  
   private
-  # Converts email to all lower-case
-  def downcase_email
-    self.email = email.downcase
-  end
-  # Creates and assigns the activation token and digest
-  def create_activation_digest
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
-  end
+    # Converts email to all lower-case
+    def downcase_email
+      self.email = email.downcase
+    end
+    # Creates and assigns the activation token and digest
+    def create_activation_digest
+      self.activation_token = User.new_token
+      self.activation_digest = User.digest(activation_token)
+    end
   
 end

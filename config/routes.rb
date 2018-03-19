@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-    
   get 'restaurants/new'
   get 'restaurants/show'
 
@@ -23,7 +22,11 @@ Rails.application.routes.draw do
   post 'restaurants/new', to: 'restaurants#create'
   get 'restaurants/show', to: 'restaurants#show'
   get 'restaurants/index', to: 'restaurants#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
+  #get 'password_resets/new'
+  #get 'password_resets/edit'
+  
   resources :users
   resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

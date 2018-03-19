@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
         log_in @user
         redirect_to root_path
       else
-        flash.now[:danger] = "Account already exists with this email address"
-        render 'new'
+        flash[:danger] = "Account already exists with this email address"
+        redirect_to login_path
       end
     else
       user = User.find_by(email: params[:session][:email].downcase)
