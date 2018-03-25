@@ -1,0 +1,25 @@
+<% @yelp_reviews["reviews"].each do |r| %>
+	<% unless r.nil? %>
+		<div class="each-review">
+			<% unless r["user"]["image_url"].nil? %>
+				<%= image_tag(r["user"]["image_url"], class: "review-image") %> 
+			<% end %>
+			<% unless r["user"]["name"].nil? %>
+				<span class="review-name"><%= r["user"]["name"] %> ||</span> 
+			<% end %>
+			<% unless r["rating"].nil? %>
+				<span class="fa fa-star" aria-hidden="true"></span>
+				<%= r["rating"]%>
+			<% end %>
+			<div>
+				<% unless r["text"].nil? %>
+					<%= r["text"] %>
+					<% if r["text"].include? "..." %>
+						<%= link_to "more", r["url"]%>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<hr>
+	<% end %>
+<% end %>

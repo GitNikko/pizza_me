@@ -55,17 +55,17 @@ end
 def restaurant_photo(array_index)
   @spot['photos'][array_index]
 end
-def review_name
-  @reviews["reviews"]["user"]["name"]
-end
-def review_image(array_index)
-  @reviews["reviews"][array_index]["user"]["image_url"]
-end
-def review_text(array_index)
-  @reviews["reviews"][array_index]["text"]
-end
-def review_rating(array_index)
-  @reviews["reviews"][array_index]["rating"]
-end
+#def review_name
+#  @reviews["reviews"]["user"]["name"]
+#end
+#def review_image(array_index)
+#  @reviews["reviews"][array_index]["user"]["image_url"]
+#end
+#def review_text(array_index)
+#  @reviews["reviews"][array_index]["text"]
+#end
+#def review_rating(array_index)
+#  @reviews["reviews"][array_index]["rating"]
+#end
 
 end

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # Dependent: :destroy will destroy the dependent reviews if the user is deleted.
+  has_many :reviews, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save :downcase_email
   before_create :create_activation_digest
@@ -52,6 +54,7 @@ class User < ApplicationRecord
       oauth_image = auth["info"]["image"]
       self.where(:email => oauth_email, :name => oauth_name).first_or_create do |user|
         user.password = SecureRandom.hex 
+        user.profile_image = oauth_image
         user.activated = true
         user.oauth_login = true
       end

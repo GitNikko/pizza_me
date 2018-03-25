@@ -1,8 +1,9 @@
 <% provide(:title, "Home") %>
 <!--JUMBOTRON-->
+<div class="background">
 <div class="jumbotron">
-  <div class="container">	
-    <h2 id="jumbo-caption">Find your Pizza</h2>
+  <div class="container">
+    <h2 id="jumbo-caption">Find Your Pizza</h2>
 		    <div class="search-div">
 				<span class="glyphicon glyphicon-search jumbo-search-icon" aria-hidden="true"></span>
 			  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
@@ -12,49 +13,21 @@
 		    </div>
 	</div>
 </div>
-<!--ABOUT ME BOX-->
+<!--ABOUT ME BOX
 <div class="container-fluid">
 <div class="row about-me-row">
 	<div class="col-md-6 col-md-offset-3 about-me-box">
 		<span id="about-me">Some text about me goes here</span>
 	</div>
 </div>
-</div>
+</div>-->
 <!--THUMBNAILS-->
 <div class="container">
 	<span id="latest-news">Latest News</span>
 	<p id="news-caption">Explore the latest news from Sydney's best pizzeria's</p>
 	<hr>
 	<div class="row">
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	     <%= image_tag("orazio_thumb.jpg", size: "300x300", class: "thumbimages") %>
-	      <div class="caption">
-	        <h3>Da Orazio</h3>
-	        <p>Chef and partner Orazio D'Elia, formerly of Popolo and Icebergs, puts a serious focus on Neapolitan-style wood-fired pizza and Roman-style porchetta.</p>
-	        <p><%= link_to "More", {:controller => "restaurants", :action => "show", :id => "da-orazio-pizza-porchetta-bondi-beach"}, class: "btn btn-primary thumbnail-buttons" %></p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">     
-		 <%= image_tag("pavillion_thumb.jpg", size: "250x200", class: "thumbimages") %>
-	      <div class="caption">
-	        <h3>Coogee Pavillion</h3>
-	        <p>For casual bites, snag a stool by the bar and feast on some of the city's best Neapolitan-style pizza, bubbly and gently charred from the wood-fired oven.</p>
-	        <p><%= link_to "More", {:controller => "restaurants", :action => "show", :id => "coogee-pavilion-coogee"}, class: "btn btn-primary thumbnail-buttons" %></p>
-	      </div>
-	    </div>
-	  </div>
-	  <div class="col-sm-6 col-md-4">
-	    <div class="thumbnail">
-	     <%= image_tag("lucio_thumb.jpg", size: "300x300", class: "thumbimages") %>
-	      <div class="caption">
-	        <h3>Lucio Pizzeria</h3>
-	        <p>Despite a lack of signage, Lucio’s reputation is such that tables fill from the moment it opens.</p>
-	        <p><%= link_to "More", {:controller => "restaurants", :action => "show", :id => "lucio-pizzeria-darlinghurst"}, class: "btn btn-primary thumbnail-buttons" %></p>
-	      </div>
-	    </div>
-	  </div>
+	  <%= render 'pages/thumbnails' %>
 	</div>
+</div>
 </div>

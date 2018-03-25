@@ -1,33 +1,34 @@
 <% provide(:title, "Pizza near " + params[:search]) %>
 <div class="container-fluid results-header-div">
- 	   <h2>Top pizza restaurants near "<%= params[:search] %>"</h2>
+ 	   <span>Top pizza restaurants near "<%= params[:search] %>"</span>
 </div>
+<div class="background">
 <div class="container">
 	<div class="row">
 		<div class="col-md-8">
-			<ul class="results-list"><% @sort_by_rating.reverse.map do |a| %>
-				<div class="each-result">
-					<% if a["image_url"].nil? %>
-					<%= link_to (image_tag("", class: "index-image")), {:controller => "restaurants", 															:action => "show", :id => a["id"]} %>
-					<% else %>
-					<%= link_to (image_tag(a["image_url"], class: "index-image")), {:controller => "restaurants", 															:action => "show", :id => a["id"]} %>
-					<% end %>
-					<div class="result-content">
-					<li class="result-name"><%= link_to a["name"], {:controller => 												"restaurants", :action => "show", :id => a["id"]} %></li>	
-					<span class="result-rating result-name"><span class="fa fa-star" 					aria-hidden="true"></span> <%= a["rating"]%> </span>
-					<span>(<%= a["review_count"]%> reviews)</span>
-					<p class="price-icon"><%= a["price"]%></p>
-					<p><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-						<span><%= a["location"]["display_address"].to_sentence %></span>
-					</div>
-				</div>
-				<% end %>		
-			</ul>
+			<%= render 'restaurants/results' %>
 		</div>
 		<div class="col-md-3 index-sidebar-div">
-			
+			<div class="recently-header-div">
+				<span class="recently-header">Recently reviewed</span>
+			</div>
+			<% @recently_reviewed.each do |r| %>
+			<% yelp_access = business(r.restaurant.yelp_id)%>
+			<div class="each-recent-review thumbnail">
+				<p><%= link_to (image_tag(yelp_access["image_url"], class: "recent-review-image")), 
+							{ :controller => "restaurants", :action => "show", :id => yelp_access["id"] } %></p>
+				<p class="recent-restaurant-name"><%= link_to r.restaurant.name,
+							{:controller => "restaurants", :action => "show", :id => yelp_access["id"]}  %></p>
+				<span class="recent-review-name"><%= r.user.name %> ||</span> 
+				<span class="fa fa-star" aria-hidden="true"></span>
+				<%= r.rating %>
+				<div>
+					<p><%= r.content %></p>
+					<p>Posted <%= time_ago_in_words(r.created_at) %> ago.</p>	
+				</div>
+			</div>
+			<% end %>
 		</div>
 	</div>
 </div>
-<p><%= @sort_by_rating %></p>
-<p><%= @results %></p>
+</div>

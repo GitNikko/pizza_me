@@ -1,32 +1,32 @@
 <header>
   <nav class="navbar .navbar-expand{-sm|-md|-lg|-xl}">
+	<!--PIZZAME LOGO-->
     <div class="navbar-logo-div">
-      <!--<a href="/root" id="logo"><font color="white">Pizza</font><font color="black">Me</font></a>-->
 	  <%= link_to "PizzaMe", root_path, class: "navbar-brand"%>
     </div>
+	<!--SEARCH BAR-->
 	<div class="navbar-search-div">	
 		<span class="glyphicon glyphicon-search nav-search-icon" aria-hidden="true"></span>
 	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
-	  										class: "form-inline navbar-form") do %>
+	  										class: "form-inline navbar-formm") do %>
 	  <%= text_field_tag :search, params[:search], placeholder: "Search", 															class: "form-control navbar-search" %>
 		<% end %>
 	</div>
-	<div class="container navbar-user-links">
-		
-	<ul class="navbar-nav navbar-right">
+	<!--NAVIGATION LINKS-->
+	
+	<ul class="navbar-user-links navbar-right">
 		<% if logged_in? %>
-		<li class="login-nav"><%= current_user.name %></li>
-		<li><div class="avadiv"><%=link_to image_tag(current_user.profile_image, size: "40x40", class: "avatar"), 									current_user, class: "work" %></div></li>
+		<li class="login-nav hidden-xs"><%= current_user.name %></li>
+		<li><div class="avadiv"><%=link_to image_tag(current_user.profile_image, size: "40x40", class: "avatar"), 									current_user %></div></li>
 		<% else%>
-		<li><%= link_to "Log-in/Sign-up", login_path, class: "login-nav" %></li>
-		<li class="fa fa-google-plus-square fa-3x social-icons"</li>
-		<li class="fa fa-facebook-square fa-3x social-icons"</li>
-		<% end %>
-		
-		<li>
-	      <button type="button" class="btn btn-default dropdown-toggle menu-button" data-toggle="dropdown" aria-haspopup="true" 			aria-expanded="false">
+		<li><%= link_to "Log-in/Sign-up", login_path, class: "login-nav hidden-xs" %></li>
+		<li class="fa fa-google-plus-square fa-3x social-icons hidden-xs"</li>
+		<li class="fa fa-facebook-square fa-3x social-icons hidden-xs"</li>
+		<% end %>	
+		<!--DROPDOWN MENU-->
+		<li><button type="button" class="btn btn-default dropdown-toggle menu-button" data-toggle="dropdown" 						aria-haspopup="true" aria-expanded="false">
   		  <span class="fa fa-align-justify fa-3x"></span></button>
-	          <ul class="dropdown-menu">
+	          <ul class="dropdown-menu dropdown-menu-right">
 	            <li><a href="#">Pizza</a></li>
 	            <li><a href="#">About</a></li>
 				<% if logged_in? %>
@@ -42,11 +42,12 @@
 				<% else %>
 				<li role="separator" class="divider"></li>
 	            <li><%= link_to "Login", login_path %></li>
+				<li><%= link_to "Signup", signup_path %></li>
 				<% end %>
 	          </ul>
 		</li>	
 	</ul>
-	</div>
+	
   </nav>
   <div class="container-fluid sub-nav">
   </div>

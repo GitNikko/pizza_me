@@ -11,7 +11,7 @@
 	</div>	
 	<div class="col-md-4">	
 		<%= form_for(@user, url: signup_path) do |f| %>
-			<%= render 'shared/error_messages' %>
+			<%= render 'shared/error_messages', object: f.object %>
 			
 			<%= f.label :name %>
 			<%= f.text_field :name, class: 'form-control' %>
@@ -27,7 +27,7 @@
 			
 			<%= f.submit "Create my account!", class: "btn btn-success" %>
 		<% end %>
-		<p>Already a member? <%= link_to "Log in here", login_path %>
+		<p class="sign-up-now">Already a member? <%= link_to "Log in here", login_path %></p>
 	</div>
 </div>
 </div>

@@ -1,0 +1,23 @@
+pizza_one:
+  content: "This food was bad"
+  created_at: <%= 10.minutes.ago %>
+  rating: 5
+  user: archer
+
+pizza_two:
+  content: "This pizza was good"
+  created_at: <%= 3.years.ago %>
+  rating: 5
+  user: archer
+
+pizza_three:
+  content: "This pizza was great"
+  created_at: <%= 2.hours.ago %>
+  rating: 5
+  user: lana
+
+most_recent:
+  content: "I am the most recently eaten pizza"
+  created_at: <%= Time.zone.now %>
+  rating: 5
+  user: lana

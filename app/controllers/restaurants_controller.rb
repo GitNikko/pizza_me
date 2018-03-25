@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
      
     @results = search("pizza", params[:search] + ", NSW")
     @sort_by_rating = @results["businesses"].sort_by { |a| a["review_count"]}
-    
+    @recently_reviewed = Review.order(:created_at).take(3)
   end
 
   def show
@@ -25,13 +25,18 @@ class RestaurantsController < ApplicationController
     #@client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
     #@spot = @client.spot(params[:id])
     @spot = business(params[:id])
-    @reviews = reviews(params[:id])
+    @yelp_reviews = reviews(params[:id])
+    
     restaurant_attributes
     
-    restaurant = Restaurant.find_by(yelp_id: params[:id])
-    if restaurant.nil?
-     Restaurant.create(:name => @spot["name"], :yelp_id => params[:id])
+    @restaurant = Restaurant.find_by(yelp_id: params[:id])
+    if @restaurant.nil?
+     @restaurant = Restaurant.create(:name => @spot["name"], :yelp_id => params[:id])
     end
+    
+    @reviews = @restaurant.reviews
+   
+    @review = current_user.reviews.build if logged_in?
       
   end
 end
