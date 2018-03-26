@@ -5,11 +5,13 @@
 	  <%= link_to "PizzaMe", root_path, class: "navbar-brand"%>
     </div>
 	<!--SEARCH BAR-->
-	<div class="navbar-search-div">	
+	<div class="navbar-search-div hidden-xs">	
 		<span class="glyphicon glyphicon-search nav-search-icon" aria-hidden="true"></span>
 	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
 	  										class: "form-inline navbar-formm") do %>
 	  <%= text_field_tag :search, params[:search], placeholder: "Search", 															class: "form-control navbar-search" %>
+	  <%= select_tag(:state, options_for_select(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT']), 
+	  												{:class => "nav-state-select"}) %>
 		<% end %>
 	</div>
 	<!--NAVIGATION LINKS-->
@@ -27,8 +29,8 @@
 		<li><button type="button" class="btn btn-default dropdown-toggle menu-button" data-toggle="dropdown" 						aria-haspopup="true" aria-expanded="false">
   		  <span class="fa fa-align-justify fa-3x"></span></button>
 	          <ul class="dropdown-menu dropdown-menu-right">
-	            <li><a href="#">Pizza</a></li>
-	            <li><a href="#">About</a></li>
+	            <li><a href="/">Pizza</a></li>
+				<li><a href="#">About</a></li>
 				<% if logged_in? %>
 					<li><%= link_to "Profile", current_user %></li>
 					<% unless current_user.oauth_login? %>

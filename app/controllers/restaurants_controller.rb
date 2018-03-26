@@ -15,7 +15,7 @@ class RestaurantsController < ApplicationController
     #@results = @spots.delete_if { |a| a.rating.nil? }
      #@results = search("pizza", params[:search] + ) 
      
-    @results = search("pizza", params[:search] + ", NSW")
+    @results = search("pizza", params[:search] + ", " + params[:state])
     @sort_by_rating = @results["businesses"].sort_by { |a| a["review_count"]}
     @recently_reviewed = Review.order(:created_at).take(3)
   end

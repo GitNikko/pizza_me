@@ -18,9 +18,13 @@
 </div>
 <div class="container">
 	<div class"row">
-		<div class="col-md-8 reviews-div">
+		<div class="col-xs-12 col-md-8 reviews-div">
 			<% if logged_in? %>	
-					<%= render 'reviews/review_form' %>
+				<%= render 'reviews/review_form' %>
+			<% else %>
+				<div class="new-review-div">
+					<h2>Sign-up/Log-in to leave a review</h2>
+				</div>
 			<% end %>
 			
 			<% if @restaurant.reviews.any? %>
