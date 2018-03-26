@@ -472,8 +472,8 @@ input {
 	margin-top: 20px;
 	padding-left: 50px;
 	@media (max-width: 978px) {	   
-	    	padding-left: 0px;
-			padding-right: 0px;
+	    	padding-left: 4px;
+			padding-right: 4px;
 	}
 }
 .each-review{
@@ -518,6 +518,29 @@ input {
 	span{
 		outline: none;
 	}	
+}
+.loggedout-review-div{
+	border: 10px solid #efefef;
+	margin-bottom: 40px;
+	height: 100px;
+	width: 80%;
+	border-radius: 5px;
+	padding-top: 20px;
+	font-size: 1.5em;
+	text-align: center;
+	a{
+		
+		font-weight: 500;
+		letter-spacing:-1px;
+		color: grey;
+	}
+	.social-icons{
+		color: #39acd6;
+	}
+	@media (max-width: 978px) {	   
+	    	width: 100%;
+	}
+	//background-color: #efefef;
 }
 .review-content {
 	width: 100%;
