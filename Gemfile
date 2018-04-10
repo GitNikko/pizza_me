@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+ruby '2.5.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 gem 'bcrypt'
@@ -74,7 +74,7 @@ group :test do
   gem 'guard-minitest'
 end
 
-group :production do 
+group :production do
   gem 'pg'
   gem 'fog'
 end
