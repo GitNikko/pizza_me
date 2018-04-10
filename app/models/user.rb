@@ -10,7 +10,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  # 'allow_nil: true' allows our edit form to only edit certain attributes while leaving the password
+  # 'allow_nil: true' allows the edit form to only edit certain attributes while leaving the password
   # field blank. Blank passwords for new users is still caught by the has_secure_password presence validation.
   # This also conveniently fixes a duplicate 'blank password' error message.  
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
