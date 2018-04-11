@@ -15,9 +15,9 @@
 			<% yelp_access = business(r.restaurant.yelp_id)%>
 			<div class="each-recent-review thumbnail">
 				<p><%= link_to (image_tag(yelp_access["image_url"], class: "recent-review-image")),
-							{ :controller => "restaurants", :action => "show", :id => yelp_access["id"] } %></p>
+							{ :controller => "restaurants", :action => "show", :id => yelp_access["alias"] } %></p>
 				<p class="recent-restaurant-name"><%= link_to r.restaurant.name,
-							{:controller => "restaurants", :action => "show", :id => yelp_access["id"]}  %></p>
+							{:controller => "restaurants", :action => "show", :id => yelp_access["alias"]}  %></p>
 				<span class="recent-review-name"><%= r.user.name %> ||</span>
 				<span class="fa fa-star" aria-hidden="true"></span>
 				<%= r.rating %>
@@ -30,3 +30,4 @@
 		</div>
 	</div>
 </div>
+<p><%= @results %></p>
