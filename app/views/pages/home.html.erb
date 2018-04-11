@@ -8,12 +8,9 @@
 				<span class="glyphicon glyphicon-search jumbo-search-icon" aria-hidden="true"></span>
 			  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
 			  										class: "input-group search-container") do %>
-			  <%= text_field_tag :search, params[:search], placeholder: "Suburb", 															class: "form-control search-bar" %>
-			  
+			  <%= text_field_tag :search, params[:search], placeholder: "Suburb", class: "form-control search-bar" %>
 			  <%= select_tag(:state, options_for_select(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT']), 
 			  												{:class => "state-select"}) %>
-			  
-			  
 				<% end %> 
 		    </div>
 	</div>

@@ -8,8 +8,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(params[:restaurant])
   end
 
-  def index
-      
+  def index   
     #@client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
     #@spots = @client.spots_by_query('Pizza near ' + params[:search] + ' Sydney', :types => ['pizza'])
     #@results = @spots.delete_if { |a| a.rating.nil? }
@@ -20,8 +19,7 @@ class RestaurantsController < ApplicationController
     @recently_reviewed = Review.order(:created_at).take(3)
   end
 
-  def show
-       
+  def show 
     #@client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
     #@spot = @client.spot(params[:id])
     @spot = business(params[:id])
@@ -35,8 +33,6 @@ class RestaurantsController < ApplicationController
     end
     
     @reviews = @restaurant.reviews
-   
-    @review = current_user.reviews.build if logged_in?
-      
+    @review = current_user.reviews.build if logged_in?  
   end
 end

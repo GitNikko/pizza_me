@@ -6,18 +6,24 @@
 	-webkit-box-sizing: border-box;
 	box-sizing:         border-box;
 }
-@mixin reset_box-shadow{
+@mixin reset_box_shadow {
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	box-shadow: none;
 }
-@mixin reset_appearance{
+@mixin reset_appearance {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 }
+@mixin flexbox_align {
+	display: inline-flex;
+	align-items: center;
+}
+//Color variables
+$pizzame-red: #db3b3b;
+$pizzame-blue: #39acd6;
 //Misc
-/* miscellaneous */
 .debug_dump {
 	clear: both;
 	float: left;
@@ -47,8 +53,7 @@ h2 {
 		height: 100%;
 		//border: 2px solid black;
 		float: left;
-		display: flex;
-		align-items: center;
+		@include flexbox_align;
 		.navbar-brand{
 			width: 100%;
 			font-size: 1.8em;
@@ -56,7 +61,7 @@ h2 {
 			font-weight: bold;
 			//border: 2px solid blue;
 			text-align: center;
-			color: #db3b3b;
+			color: $pizzame_red;
 		}
 	}
 	.navbar-search-div{
@@ -66,23 +71,19 @@ h2 {
 		float: left;
 		background-color: #efefef;
 		padding-left: 10px;
-		display: inline-flex;
-		align-items: center;
+		@include flexbox_align;
 		.nav-search-icon{
 			font-size: 1.4em;
 			color: grey;
 		}
-		.navbar-formm{
-			//height: 100%;
+		.nav-form{
 			width: 90%;
 			//border: 2px solid red;
 			padding-top: 10px;
 			padding-left: 0px;
 			margin-top: 0px;
 			margin-bottom: 0px;
-			display: inline-flex;
-			align-items: center;
-
+			@include flexbox_align;
 		}
 		.navbar-search{
 			width: 70%;
@@ -91,9 +92,7 @@ h2 {
 			padding-bottom: 0px;
 			border: none;
 			background-color: #efefef;
-			-webkit-box-shadow: none;
-			-moz-box-shadow: none;
-			box-shadow: none;
+			@include reset_box_shadow;
 			//border: 2px solid green;
 		}
 		.nav-state-select{
@@ -116,14 +115,11 @@ h2 {
 			    5px 5px;
 			   // 1px 1.5em;
 			  background-repeat: no-repeat;
-			box-shadow: none;
-			-moz-box-shadow: none;
-			-webkit-box-shadow: none;
-			-webkit-appearance: none;
-			-moz-appearance: none;
+			@include reset_appearance;
+			@include reset_box_shadow;
+			@include reset_appearance;
 		}
 	}
-
 	.navbar-user-links{
 		height: 100%;
 		//border: 2px solid blue;
@@ -132,18 +128,16 @@ h2 {
 		padding-left: 0px;
 		margin-right: 0px;
 		float: right;
-		display: inline-flex;
-		align-items: center;
+		@include flexbox_align;
 		@media (max-width: 978px) {
 				padding-right: 10px;
 		}
 		.social-parent{
-			display: inline-flex;
-			align-items: center;
+			@include flexbox_align;
 			.social-icons{
 				margin-left: 15px;
 				font-size: 2.5em;
-				color: #39acd6;
+				color: $pizzame-blue;
 			}
 		}		
 	}
@@ -188,7 +182,6 @@ h2 {
 		letter-spacing: -2px;
 		margin-bottom: 80px;
 	}
-
 	#jumbo-caption{
 		font-size: 3.2em;
 		letter-spacing: -2px;
@@ -201,11 +194,8 @@ h2 {
 	.search-div{
 		height: 70px;
 		width: 500px;
-		//width: 40%;
-		//border: 2px solid black;
 		margin: 0 auto;
-		display: flex;
-		align-items: center;
+		@include flexbox_align;
 		background-color: white;
 		padding-left: 10px;
 		opacity: 0.8;
@@ -222,10 +212,8 @@ h2 {
 		height: 100%;
 		width: 100%;
 		//border: 2px solid green;
-		display: flex;
-		align-items: center;
+		@include flexbox-align;
 		padding-bottom: 5px;
-
 	}
 	.search-bar{
 		font-size: 1.4em;
@@ -234,8 +222,7 @@ h2 {
 		//border: 2px solid blue;
 		border: none;
 		background-color: white;
-		-webkit-box-shadow: none;
-		box-shadow: none;
+		@include reset_box_shadow;
 	}
 	.state-select{
 		width: 100px;
@@ -264,11 +251,8 @@ h2 {
 		    5px 5px;
 		   // 1px 1.5em;
 		  background-repeat: no-repeat;
-		box-shadow: none;
-		-moz-box-shadow: none;
-		-webkit-box-shadow: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
+		@include reset_box_shadow;
+		@include reset_appearance;
 	}
 }
 //Thumbnails
@@ -280,19 +264,16 @@ h2 {
 	font-size: 1.2em;
 	letter-spacing: 0.5px;
 	color: grey;
-
 }
 hr{
 	margin-top: 10px;
-
-
 }
 .thumbimages{
 	padding-top: 15px;
 }
 .thumbnail-buttons{
-	background-color: #39acd6;
-	border-color: #39acd6;;
+	background-color: $pizzame-blue;
+	border-color: $pizzame-blue;
 }
 //Footer
 .footer{
@@ -318,7 +299,6 @@ hr{
 		color: white;
 	}
 }
-
 //Forms/signup page
 #signup-header{
 	letter-spacing: 1px;
@@ -382,17 +362,12 @@ input {
 	margin-top: 10px;
 }
 //SHOW PAGE
-.show-background{
-	//background-color: #efefef;
-}
 .photo-div{
 	width: 70%;
 	height: 350px;
 	border: 5px solid white;
 	padding-left: 0px;
 	padding-right: 0px;
-	//border-top-left-radius: 10px;
-	//border-bottom-left-radius:10px;
 	@media (max-width: 978px) {
 			width: auto;
 			border: none;
@@ -401,8 +376,6 @@ input {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		//border-top-left-radius: 10px;
-		//border-bottom-left-radius:10px;
 	}
 }
 .details-div{
@@ -414,8 +387,6 @@ input {
 	}
 	//border: 1px solid #cccccc;
 	background-color: white;
-	//border-top-right-radius: 10px;
-	//border-bottom-right-radius:10px;
 	padding-top: 20px;
 	font-size: 1.0em;
 	font-weight: 400;
@@ -425,15 +396,12 @@ input {
 	border-left: 12px solid #afafaf;
 	.details-icons{
 		font-size: 1.5em;
-		color: #39acd6;
+		color: $pizzame-blue;
 	}
 }
-
 .header-div{
-
 	height: 120px;
 	//border: 1px solid grey;
-	//background-color: #eaeaea;
 	background-image: image-url("cloth.png");
 	margin-top: -20px;
 	padding-top:30px;
@@ -443,7 +411,7 @@ input {
 		letter-spacing:-1px;
 	}
 	.rating-button{
-		background-color: #db3b3b;
+		background-color: $pizzame-red;
 		margin-left: 10px;
 		color: white;
 		cursor: default;
@@ -461,12 +429,10 @@ input {
 	    	padding-left: 4px;
 			padding-right: 4px;
 	}
-	.yelp-div{
-		.yelp-span{
-			font-size: 1.3em;
-			color: grey;
-		}
-	}
+	.yelp-span{
+		font-size: 1.3em;
+		color: grey;
+	}	
 }
 .each-review{
 	//border: 1px solid #cccccc;
@@ -501,8 +467,6 @@ input {
 	@media (max-width: 978px) {
 	    	width: 100%;
 	}
-	//background-color: #efefef;
-
 	.form-hr{
 		margin-bottom: 2px;
 		margin-top: 0px;
@@ -519,10 +483,7 @@ input {
 	border-radius: 5px;
 	padding-top: 25px;
 	font-size: 1.5em;
-	//display: flex;
-	//align-items: center;
 	text-align: center;
-	
 	.review-login{
 		font-weight: 500;
 		letter-spacing:-1px;
@@ -535,27 +496,24 @@ input {
 	    	width: 100%;
 	}
 }
-.review-content {
+.review-content{
 	height: 63px;
 	width: 100%;
 	outline: none;
 	border: none;
 	border-radius: 5px;
 	margin-bottom: 0px;
-  	-webkit-box-shadow: none !important;
-  	box-shadow: none !important;
-	-moz-box-shadow: none !important;
-	-webkit-appearance: none !important;
-	-moz-appearance: none !important;
+  	@include reset_box_shadow;
+	@include reset_appearance;
 	resize: none;
 }
 .review-rating-button{
-	background-color: #db3b3b;
+	background-color: $pizzame-red;
 	//margin-left: 10px;
 	color: white;
 	float: left;
 	&:hover,&:focus{
-		background-color: #db3b3b;
+		background-color: $pizzame-red;
 		cursor: default;
 	}
 	.rating-star{
@@ -578,11 +536,11 @@ input {
 .rating-select{
 	width: 48px;
 	height: 42px;
-	background-color: #db3b3b;
+	background-color: $pizzame-red;
 	float: left;
 	color: white;
 	border: none;
-	box-shadow: none;
+	@include reset_box_shadow;
 	cursor: pointer;
 	font-size: 1.6em;
 	font-weight: bold;
@@ -593,7 +551,6 @@ input {
 	float: left;
 }
 //INDEX PAGE
-
 .results-header-div{
 	color: grey;
 	height: 120px;
@@ -608,50 +565,47 @@ input {
 		padding-right: 10px;
 	}
 }
-.each-result{
-	//border: 1px solid #cccccc;
-	height: 150px;
-	margin-top: 20px;
-	border-radius: 10px;
-	background-color: #f7f7f7;
-	@media (max-width: 750px) {
-		display: block;
-
-	}
-}
 .results-list{
 	list-style: none;
 	@media (max-width: 750px) {
 		padding-left: 5px;
 		padding-right: 5px;
 	}
-}
-.index-image{
-	height: 100%;
-	width: 150px;
-	object-fit: cover;
-	float: left;
-	margin-right: 20px;
-	border-radius: 10px;
-}
-.result-content{
-	margin-top: 15px;
-	background-color: white;
-	border: 10px solid #f7f7f7;
-
-}
-.result-name{
-	font-size: 1.3em;
-	letter-spacing: -0.5px;
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-.fa-star{
-	color: red;
-}
-.price-icon{
-	//color: gold;
-	font-size: 1.1em;
+	.each-result{
+		//border: 1px solid #cccccc;
+		height: 150px;
+		margin-top: 20px;
+		border-radius: 10px;
+		background-color: #f7f7f7;
+		@media (max-width: 750px) {
+			display: block;
+		}
+		.index-image{
+			height: 100%;
+			width: 150px;
+			object-fit: cover;
+			float: left;
+			margin-right: 20px;
+			border-radius: 10px;
+		}
+		.result-content{
+			margin-top: 15px;
+			background-color: white;
+			border: 10px solid #f7f7f7;
+		}
+		.result-name{
+			font-size: 1.3em;
+			letter-spacing: -0.5px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.fa-star{
+			color: $pizzame-red;
+		}
+		.price-icon{
+			font-size: 1.1em;
+		}
+	}
 }
 .index-sidebar-div{
 	float: right;
@@ -683,7 +637,6 @@ input {
 		}
 	}
 }
-
 .each-recent-review{
 	.recent-review-image{
 		height: 100%;
@@ -691,7 +644,6 @@ input {
 		object-fit: cover;
 		margin-right: 20px;
 		margin-bottom: 5px;
-		//border-radius: 10px;
 		display: flex;
 	}
 	.recent-restaurant-name{
@@ -702,13 +654,8 @@ input {
 	.recent-review-name{
 		font-weight: bold;
 	}
-
 }
-
-
 //USERS INDEX PAGE
-/* Users index */
-
 .users {
   list-style: none;
   margin: 0;
@@ -719,7 +666,6 @@ input {
   }
 }
 //USERS SHOW PAGE
-
 .users-review-list{
 	@media (max-width: 750px) {
 		padding-left: 0px;

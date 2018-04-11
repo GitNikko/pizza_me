@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'restaurants/new'
-  get 'restaurants/show'
-
   root 'pages#home'
   get '/news', to: 'pages#news'
   get '/pizza', to: 'pages#pizza'
@@ -23,11 +20,9 @@ Rails.application.routes.draw do
   get 'restaurants/show', to: 'restaurants#show'
   get 'restaurants/index', to: 'restaurants#index'
   
-  #get 'password_resets/new'
-  #get 'password_resets/edit'
-  
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :reviews, only: [:create, :destroy]
+  
 end

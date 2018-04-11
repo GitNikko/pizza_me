@@ -8,7 +8,7 @@
 	<div class="navbar-search-div hidden-xs">	
 		<span class="glyphicon glyphicon-search nav-search-icon" aria-hidden="true"></span>
 	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
-	  										class: "form-inline navbar-formm") do %>
+	  										class: "form-inline nav-form") do %>
 	  <%= text_field_tag :search, params[:search], placeholder: "Search", 															class: "form-control navbar-search" %>
 	  <%= select_tag(:state, options_for_select(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT']), 
 	  												{:class => "nav-state-select"}) %>
