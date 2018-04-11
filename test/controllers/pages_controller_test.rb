@@ -6,19 +6,14 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get news" do
-    get news_path
-    assert_response :success
-  end
-
   test "should get pizza" do
     get pizza_path
     assert_response :success
   end
-
-  test "should get about" do
-    get about_path
+  
+  test "should get login" do
+    get login_path
     assert_response :success
   end
-
+  
 end
