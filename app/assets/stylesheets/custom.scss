@@ -599,13 +599,13 @@ input {
 			font-weight: bold;
 			margin-bottom: 10px;
 		}
-		.fa-star{
-			color: $pizzame-red;
-		}
 		.price-icon{
 			font-size: 1.1em;
 		}
 	}
+}
+.fa-star{
+	color: $pizzame-red;
 }
 .index-sidebar-div{
 	float: right;
