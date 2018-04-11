@@ -38,7 +38,11 @@
 			<%= render @reviews %>
 			</div>
 			<% end %>
-		
+			<div class="yelp-div">
+				<span class="yelp-span">Some reviews from Yelp.</span>
+				<%= link_to (image_tag("yelp_burst.png", class: "yelp-burst")), "https://www.yelp.com" %>
+				<hr>
+			</div>
 			<%= render 'restaurants/yelp_review' %>
 		</div>
 		<div class="col-xs-12 col-md-4">

@@ -313,18 +313,9 @@ hr{
 			text-decoration: none;
 		}
 	}
-	ul{
+	.yelp-footer{
 		float: right;
-		list-style: none;
-		padding-top: 30px;
-		li{
-
-			float: left;
-			margin-left: 30px;
-			a{
-				color: white;
-			}
-		}
+		color: white;
 	}
 }
 
@@ -470,6 +461,12 @@ input {
 	    	padding-left: 4px;
 			padding-right: 4px;
 	}
+	.yelp-div{
+		.yelp-span{
+			font-size: 1.3em;
+			color: grey;
+		}
+	}
 }
 .each-review{
 	//border: 1px solid #cccccc;
@@ -590,10 +587,6 @@ input {
 	font-size: 1.6em;
 	font-weight: bold;
 	padding-right: 0px;
-}
-.select2-selection--single {
-	height: 42px;
-	
 }
 .rating-text{
 	font-size: 1em;
