@@ -14,20 +14,19 @@
 			<% @recently_reviewed.each do |r| %>
 			<% yelp_access = business(r.restaurant.yelp_id)%>
 			<div class="each-recent-review thumbnail">
-				<p><%= link_to (image_tag(yelp_access["image_url"], class: "recent-review-image")), 
+				<p><%= link_to (image_tag(yelp_access["image_url"], class: "recent-review-image")),
 							{ :controller => "restaurants", :action => "show", :id => yelp_access["id"] } %></p>
 				<p class="recent-restaurant-name"><%= link_to r.restaurant.name,
 							{:controller => "restaurants", :action => "show", :id => yelp_access["id"]}  %></p>
-				<span class="recent-review-name"><%= r.user.name %> ||</span> 
+				<span class="recent-review-name"><%= r.user.name %> ||</span>
 				<span class="fa fa-star" aria-hidden="true"></span>
 				<%= r.rating %>
 				<div>
 					<p><%= r.content %></p>
-					<p>Posted <%= time_ago_in_words(r.created_at) %> ago.</p>	
+					<p>Posted <%= time_ago_in_words(r.created_at) %> ago.</p>
 				</div>
 			</div>
 			<% end %>
 		</div>
 	</div>
 </div>
-

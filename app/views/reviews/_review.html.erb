@@ -1,6 +1,6 @@
 <div class="each-review">
-	<%= image_tag(review.user.profile_image, class: "review-image") %> 
-	<span class="review-name"><%= review.user.name %> ||</span> 
+	<%= image_tag(review.user.profile_image, class: "review-image") %>
+	<span class="review-name"><%= review.user.name %> ||</span>
 	<span class="fa fa-star" aria-hidden="true"></span>
 	<%= review.rating %>
 	<div>
@@ -8,10 +8,10 @@
 		<%= image_tag review.picture.url if review.picture? %>
 		<p>Posted <%= time_ago_in_words(review.created_at) %> ago.
 			<% if current_user?(review.user) %>
-			<%= link_to "delete", review, method: :delete, data: { confirm: "Are you sure>" } %>
-			<% end %></p>	
+			<%= link_to "delete", review, method: :delete, data: { confirm: "Are you sure?" } %>
+			<% end %></p>
 		<!--Only shows the restaurant name @show_restaurant_name is set to true in the controller-->
-		<p><%= review.restaurant.name if @show_restaurant_name %> </p>	
+		<p><%= review.restaurant.name if @show_restaurant_name %> </p>
 	</div>
 </div>
 <hr>

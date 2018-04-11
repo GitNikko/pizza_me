@@ -2,7 +2,7 @@
 <%= render 'shared/error_messages', object: f.object %>
 	<div class="new-review-div">
 		
-		<%= f.text_area :content, class: "review-content", rows: "3", placeholder: "Write a review.." %>
+		<%= f.text_area :content, class: "review-content", placeholder: "Write a review.." %>
 		
 		<span><%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %></span>
 		<script type="text/javascript"> 
@@ -13,7 +13,7 @@
 		<span><button type="button" class="btn btn-default review-rating-button">
 			<i class="fa fa-star fa-2x rating-star"></i></button></span>
 		<%= f.select(:rating, options_for_select([["-", nil], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5]], "-"), {},  
-													{:class => "form-control rating-select"}) %>
+													{:class => "form-control rating-select"}) %>				
 		<%= hidden_field_tag :restaurant_id, @restaurant.id %>
 		<%= f.submit "POST", class: "btn btn-primary review-submit" %>
 		
