@@ -23,9 +23,13 @@
 				<%= render 'reviews/review_form' %>
 			<% else %>
 				<div class="loggedout-review-div">
-					<%= link_to "Log-in to leave a review", login_path %>
-					<span class="fa fa-google-plus-square social-icons"</span>
-					<span class="fa fa-facebook-square social-icons"</span>
+					<%= link_to "Log-in to leave a review", login_path, class: "review-login" %>
+					<span>
+						<%= link_to "", "/auth/google_oauth2", class: "fa fa-google-plus-square social-icons" %>
+					</span>
+					<span>
+						<%= link_to "", "/auth/facebook", class: "fa fa-facebook-square social-icons" %>
+					</span>
 				</div>
 			<% end %>
 			

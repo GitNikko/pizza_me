@@ -137,11 +137,15 @@ h2 {
 		@media (max-width: 978px) {
 				padding-right: 10px;
 		}
-		.social-icons{
-			margin-left: 15px;
-			font-size: 2.5em;
-			color: #39acd6;
-		}
+		.social-parent{
+			display: inline-flex;
+			align-items: center;
+			.social-icons{
+				margin-left: 15px;
+				font-size: 2.5em;
+				color: #39acd6;
+			}
+		}		
 	}
 	.avatar{
 		border-radius: 50%;
@@ -516,11 +520,13 @@ input {
 	height: 100px;
 	width: 80%;
 	border-radius: 5px;
-	padding-top: 20px;
+	padding-top: 25px;
 	font-size: 1.5em;
+	//display: flex;
+	//align-items: center;
 	text-align: center;
-	a{
-
+	
+	.review-login{
 		font-weight: 500;
 		letter-spacing:-1px;
 		color: grey;
@@ -531,7 +537,6 @@ input {
 	@media (max-width: 978px) {
 	    	width: 100%;
 	}
-	//background-color: #efefef;
 }
 .review-content {
 	height: 63px;

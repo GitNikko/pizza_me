@@ -22,15 +22,18 @@
 		<li><div class="avadiv"><%=link_to image_tag(current_user.profile_image, size: "40x40", class: "avatar"), 									current_user %></div></li>
 		<% else%>
 		<li><%= link_to "Log-in/Sign-up", login_path, class: "login-nav hidden-xs" %></li>
-		<li class="fa fa-google-plus-square fa-3x social-icons hidden-xs"</li>
-		<li class="fa fa-facebook-square fa-3x social-icons hidden-xs"</li>
+		<li class="social-parent">
+			<%= link_to "", "/auth/google_oauth2", class: "fa fa-google-plus-square fa-3x social-icons hidden-xs" %>
+		</li>
+		<li class="social-parent">
+			<%= link_to "", "/auth/facebook", class: "fa fa-facebook-square fa-3x social-icons hidden-xs" %>
+		</li>
 		<% end %>	
 		<!--DROPDOWN MENU-->
 		<li><button type="button" class="btn btn-default dropdown-toggle menu-button" data-toggle="dropdown" 						aria-haspopup="true" aria-expanded="false">
   		  <span class="fa fa-align-justify fa-3x"></span></button>
 	          <ul class="dropdown-menu dropdown-menu-right">
 	            <li><a href="/">Pizza</a></li>
-				<li><a href="#">About</a></li>
 				<% if logged_in? %>
 					<li><%= link_to "Profile", current_user %></li>
 					<% unless current_user.oauth_login? %>
