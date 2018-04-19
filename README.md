@@ -1,8 +1,8 @@
 # PIZZA ME
 
-###Welcome to PizzaMe!
+**Welcome to PizzaMe!**
 
-PizzaMe is a dedicated pizza search engine for pizza enthusiasts all over the country. 
+PizzaMe is a dedicated pizza search engine for pizza enthusiasts all over the country.\ 
 Please find the live site here: https://pizza-me-now.herokuapp.com
 
 **Installation -**
@@ -12,19 +12,19 @@ To run this app locally, clone the repo and run '$bundle install' to add necessa
 
 Create a '.env' file in the working directory and add the following API keys:
 
-FACEBOOK_KEY=<insert_key_here>
-FACEBOOK_SECRET=<insert_secret_here>
+FACEBOOK_KEY=<insert_key_here>\
+FACEBOOK_SECRET=<insert_secret_here>\
 
-GOOGLE_CLIENT_ID=<your_google_client_id_here>
-GOOGLE_SECRET=<your_google_secret_here>
+GOOGLE_CLIENT_ID=<your_google_client_id_here>\
+GOOGLE_SECRET=<your_google_secret_here>\
 
-YELP_KEY=<your_yelp_api_key>
+YELP_KEY=<your_yelp_api_key>\
 (Please note this app only works with the Yelp Fusion v3 api, NOT v2)
 
-To obtain these keys please use the following links:
-https://www.yelp.com.au/fusion
-https://developers.facebook.com
-https://console.developers.google.com/
+To obtain these keys please use the following links:\
+https://www.yelp.com.au/fusion\
+https://developers.facebook.com\
+https://console.developers.google.com/\
 
 DO NOT commit your '.env' file to git! Add this file to '.gitignore' to keep your api keys safe.
 
