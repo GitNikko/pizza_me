@@ -34,8 +34,4 @@ class ReviewsController < ApplicationController
       redirect_to root_url if @review.nil?
     end
 
-    #def current_restaurant
-    #  @restaurant = Restaurant.find_by(id: params[:restaurant_id])
-    #end
-
 end

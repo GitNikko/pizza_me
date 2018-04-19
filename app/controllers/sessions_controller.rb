@@ -6,9 +6,7 @@ class SessionsController < ApplicationController
     if auth = request.env["omniauth.auth"]
       user = User.find_or_create_by_omniauth(auth)
       if user.save
-          if user.profile_image != auth["info"]["image"]
-            user.update_attribute(:profile_image, auth["info"]["image"])
-          end
+        update_profile_image(user, auth["info"]["image"])
         log_in user
         remember(user)
         redirect_to root_path
@@ -42,4 +40,11 @@ class SessionsController < ApplicationController
     flash[:success] = "You are now logged out"
   end
   
+  private
+  def update_profile_image(user, image)
+    if user.profile_image != image
+      user.update_attribute(:profile_image, image)
+    end
+  end
+   
 end

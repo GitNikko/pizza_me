@@ -1,17 +1,17 @@
-<% provide(:title, @restaurant_name )%>
+<% provide(:title, restaurant_name )%>
 <div class="container show-background">
 	<div class="row">
 		<div class="col-xs-12 col-md-9 photo-div">
-			<%= image_tag(@restaurant_image, class: "main-photo", alt: "No image available") %>	
+			<%= image_tag(restaurant_image, class: "main-photo", alt: "No image available") %>	
 		</div>
 		<%= render 'restaurants/details' %>
 	</div>
 </div>
 <div class="container-fluid header-div">
 	<div class="col-md-8">
-		<span class="restaurant-header"><%= @restaurant_name %></span>
+		<span class="restaurant-header"><%= restaurant_name %></span>
 		<span><button type="button" class="btn btn-default btn-lg rating-button">
-			<i class="fa fa-star fa-2x rating-star"></i><%= @restaurant_rating %></button></span>
+			<i class="fa fa-star fa-2x rating-star"></i><%= restaurant_rating %></button></span>
 		
 		
 	</div>

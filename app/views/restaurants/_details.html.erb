@@ -1,12 +1,12 @@
 <div class="col-xs-12 col-sm-12 col-md-3 details-div">	
-	<p><span class="fa fa-home details-icons" aria-hidden="true"></span> <%= @restaurant_address %></p> 
+	<p><span class="fa fa-home details-icons" aria-hidden="true"></span> <%= restaurant_address %></p> 
 		
-	<p><span class="fa fa-phone details-icons" aria-hidden="true"></span> <%= @restaurant_phone %></p>
-	<p class="details-icons"><%= @restaurant_price %></p>
-	<p><span class="fa fa-star details-icons" aria-hidden="true"></span> <%= @restaurant_rating %></p>
+	<p><span class="fa fa-phone details-icons" aria-hidden="true"></span> <%= restaurant_phone %></p>
+	<p class="details-icons"><%= restaurant_price %></p>
+	<p><span class="fa fa-star details-icons" aria-hidden="true"></span> <%= restaurant_rating %></p>
 	<hr>
-	<% unless @open_now.nil? %>
-	<% if @open_now == true %>
+	<% unless open_now.nil? %>
+	<% if open_now == true %>
 	<p>OPEN NOW!</p>
 	<% else %>
 	<p>CURRENTLY CLOSED</p>

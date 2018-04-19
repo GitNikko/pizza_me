@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
-  include RestaurantsHelper  
+  include YelpSetup
+  
   def new
     @restaurant = Restaurant.new 
   end
@@ -17,8 +18,6 @@ class RestaurantsController < ApplicationController
   def show 
     @spot = business(params[:id])
     @yelp_reviews = reviews(params[:id])
-    
-    restaurant_attributes
     
     @restaurant = Restaurant.find_by(yelp_id: params[:id])
     if @restaurant.nil?
