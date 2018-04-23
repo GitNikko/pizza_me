@@ -8,7 +8,8 @@ Please find the live site here: https://pizza-me-now.herokuapp.com
 **Installation -**
 
 ruby => 2.5.0p0.  
-To run this app locally, clone the repo and run '$bundle install' to add necessary dependencies.
+To run this app locally, clone the repo and run '$bundle install --without production' to add necessary dependencies.
+Then migrate the database 'rails db:migrate'.
 
 Create a '.env' file in the working directory and add the following API keys:
 
@@ -27,6 +28,8 @@ https://developers.facebook.com
 https://console.developers.google.com  
 
 DO NOT commit your '.env' file to git! Add this file to '.gitignore' to keep your api keys safe.
+
+Run the test suite before usage to ensure everything is working correctly 'rails test'.
 
 **Usage -** 
 

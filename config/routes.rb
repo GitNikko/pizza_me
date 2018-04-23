@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   
   root 'pages#home'
-  get '/pizza', to: 'pages#pizza'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   get '/show', to: 'users#show'
   
   get '/login', to: 'sessions#new'
-  get '/auth/facebook/callback', to: 'sessions#create'
   get '/auth/:provider/callback', to: 'sessions#create'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

@@ -5,6 +5,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   provider :google_oauth2, ENV['GOOGLE_CLIENT_ID'], ENV['GOOGLE_SECRET']
 end
 
+
 OmniAuth.config.on_failure = -> (env) do
   Rack::Response.new(['302 Moved'], 302, 'Location' => env['omniauth.origin'] || "/").finish
 end

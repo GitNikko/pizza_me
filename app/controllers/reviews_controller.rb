@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
     else
       redirect_to request.referrer || root_url
       flash[:danger] = @review.errors.full_messages.to_sentence
-      #render 'pages/home'
     end
   end
 

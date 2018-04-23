@@ -9,7 +9,7 @@
 		<span class="glyphicon glyphicon-search nav-search-icon" aria-hidden="true"></span>
 	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
 	  										class: "form-inline nav-form") do %>
-	  <%= text_field_tag :search, params[:search], placeholder: "Search", 															class: "form-control navbar-search" %>
+	  <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control navbar-search" %>
 	  <%= select_tag(:state, options_for_select(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT']), 
 	  												{:class => "nav-state-select"}) %>
 		<% end %>
@@ -34,25 +34,24 @@
   		  <span class="fa fa-align-justify fa-3x"></span></button>
 	          <ul class="dropdown-menu dropdown-menu-right">
 	            <li><a href="/">Pizza</a></li>
-				<% if logged_in? %>
-					<li><%= link_to "Profile", current_user %></li>
-					<% unless current_user.oauth_login? %>
-					<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-					<% end %>
-					<% if current_user.admin? %>
-						<li><%= link_to "All users", users_path %></li>
-					<% end %>
-					<li role="separator" class="divider"></li>	
-					<li><a href="/logout" data-method="delete">Log out</a></li>
-				<% else %>
-				<li role="separator" class="divider"></li>
-	            <li><%= link_to "Login", login_path %></li>
-				<li><%= link_to "Signup", signup_path %></li>
-				<% end %>
+							<% if logged_in? %>
+								<li><%= link_to "Profile", current_user %></li>
+								<% unless current_user.oauth_login? %>
+								<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+								<% end %>
+								<% if current_user.admin? %>
+									<li><%= link_to "All users", users_path %></li>
+								<% end %>
+								<li role="separator" class="divider"></li>	
+								<li><a href="/logout" data-method="delete">Log out</a></li>
+							<% else %>
+							<li role="separator" class="divider"></li>
+				            <li><%= link_to "Login", login_path %></li>
+							<li><%= link_to "Signup", signup_path %></li>
+							<% end %>
 	          </ul>
 		</li>	
 	</ul>
-	
   </nav>
   <div class="container-fluid sub-nav">
   </div>
