@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
-  
+
   def setup
     #Here users corresponds to the fixture filename users.yml
     @user = users(:nicholas)
@@ -16,7 +16,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get root_path
     assert flash.empty?
   end
-  
+
   test "login with valid information and then log out" do
     get login_path
     post login_path, params: { session: { email: @user.email, password: 'password' } }
@@ -25,7 +25,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_template 'pages/home'
     assert_select "a[href=?]", login_path, count: 0
-    assert_select "a[href=?]", signup_path, count: 0 
+    assert_select "a[href=?]", signup_path, count: 0
     assert_select "a[href=?]", logout_path
     delete logout_path
     assert_not is_logged_in?
@@ -36,12 +36,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path, count: 0
   end
-  
+
   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
     assert_not_empty cookies['remember_token']
   end
-  
+
   test "login without remembering" do
     # Log in to set the cookie.
     log_in_as(@user, remember_me: '1')

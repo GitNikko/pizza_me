@@ -1,18 +1,18 @@
 <ul class="results-list"><% @sort_by_rating.reverse.map do |a| %>
 	<div class="each-result">
 		<% if a["image_url"].nil? %>
-		<%= link_to (image_tag("pizza-icon.jpg", class: "index-image")),
-				{:controller => "restaurants", :action => "show", :id => a["alias"]} %>
+			<%= link_to (image_tag("pizza-icon.jpg", class: "index-image")),
+					restaurants_show_path(:id => a["alias"]) %>
 		<% else %>
-		<%= link_to (image_tag(a["image_url"], class: "index-image", alt: "No image available")),
-				{:controller => "restaurants", :action => "show", :id => a["alias"]} %>
+			<%= link_to (image_tag(a["image_url"], class: "index-image", alt: "No image available")),
+					restaurants_show_path(:id => a["alias"]) %>
 		<% end %>
 		<div class="result-content">
-		<li class="result-name"><%= link_to a["name"], {:controller => "restaurants", :action => "show", :id => a["alias"]} %></li>
-		<span class="result-rating result-name"><span class="fa fa-star" aria-hidden="true"></span> <%= a["rating"]%> </span>
-		<span>(<%= a["review_count"]%> reviews)</span>
-		<p class="price-icon"><%= a["price"]%></p>
-		<p class="hidden-xs"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+			<li class="result-name"><%= link_to a["name"], restaurants_show_path(:id => a["alias"]) %></li>
+			<span class="result-rating result-name"><span class="fa fa-star" aria-hidden="true"></span> <%= a["rating"]%> </span>
+			<span>(<%= a["review_count"]%> reviews)</span>
+			<p class="price-icon"><%= a["price"]%></p>
+			<p class="hidden-xs"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 			<span><%= a["location"]["display_address"].to_sentence %></span>
 		</div>
 	</div>

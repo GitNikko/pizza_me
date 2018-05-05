@@ -1,60 +1,31 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
-
 ruby '2.5.0'
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
 gem 'rails', '~> 5.1.4'
-gem 'bcrypt'
-# gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-google-oauth2'
-gem 'http'
-gem 'font-awesome-rails'
-gem 'faker'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
-gem 'carrierwave'
-gem 'mini_magick'
-gem 'bootstrap-filestyle-rails'
-# Use Puma as the app server
-gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.7'
-gem 'jquery-rails'
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'bcrypt' # Required for has_secure_password method
+gem 'omniauth-facebook' # Facebook Oauth2 strategy
+gem 'omniauth-google-oauth2' # Google Oauth2 strategy
+gem 'http' # http library required for yelp api
+gem 'font-awesome-rails' # Icons (fontawesome.com)
+gem 'faker' # Generates random text for seeding/populating development environment
+gem 'will_paginate' # Enables pagination
+gem 'bootstrap-will_paginate' # Enables pagination
+gem 'carrierwave' # Image uploader
+gem 'mini_magick' # Image editng library. Used for resizing uploads
+gem 'bootstrap-filestyle-rails' # Cross browser file upload button support
+gem 'puma', '~> 3.7' # Puma app Server
+gem 'bootstrap-sass', '~> 3.3.7'  # Use SCSS for stylesheets
+gem 'jquery-rails' # JQuery library in asset pipeline
+gem 'sass-rails', '~> 5.0' # # Use SCSS for stylesheets
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
+gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
+gem 'jbuilder', '~> 2.5'  # Read more: https://github.com/rails/jbuilder
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'sqlite3' # Use sqlite3 as the database for Active Record
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-  # dotenv-rails keeps our social media login keys/secrets hidden
-  gem 'dotenv-rails'
+  gem 'dotenv-rails'  # hides api env variables
 end
 
 group :development do
@@ -74,8 +45,8 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'fog'
+  gem 'pg'  # Use PostgreSQL in prodcuction on Heroku
+  gem 'fog' # Cloud services library enabling image upload/storage to AWS S3
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
