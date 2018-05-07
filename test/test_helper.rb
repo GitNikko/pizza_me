@@ -16,6 +16,18 @@ class ActiveSupport::TestCase
   def log_in_as(user)
     session[:user_id] = user.id
   end
+
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.mock_auth[:default] = OmniAuth::AuthHash.new({
+  :provider => 'default',
+  :uid => '123545',
+  info: {
+    :email => 'user@example.com',
+    :name => 'Example User',
+    :image => 'http://graph.facebook.com/1234567/picture?type=square'
+  }
+  })
 end
 
 class ActionDispatch::IntegrationTest

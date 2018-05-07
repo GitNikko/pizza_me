@@ -5,6 +5,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   def setup
     #Here users corresponds to the fixture filename users.yml
     @user = users(:nicholas)
+
   end
 
   test "login with invalid information" do
@@ -49,5 +50,20 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     log_in_as(@user, remember_me: '0')
     assert_empty cookies['remember_token']
   end
-  
+
+  test "login with omniauth" do
+    get "/auth/google_oauth2/callback"
+    assert is_logged_in?
+    assert_redirected_to '/'
+    follow_redirect!
+    assert_template 'pages/home'
+    assert_select "a[href=?]", login_path, count: 0
+    assert_select "a[href=?]", signup_path, count: 0
+    assert_select "a[href=?]", logout_path
+    assert_select "a[href=?]", edit_user_path(session[:user_id]), count: 0
+    delete logout_path
+    assert_not is_logged_in?
+    assert_redirected_to root_url
+  end
+
 end

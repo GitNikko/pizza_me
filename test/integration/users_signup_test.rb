@@ -49,4 +49,16 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       assert_not flash.empty?
   end
 
+  test "signup with omniauth" do
+    assert_difference 'User.count', 1 do
+      get "/auth/google_oauth2/callback"
+    end
+    assert is_logged_in?
+    user = User.find_by(id: session[:user_id])
+    assert user.oauth_login?
+    assert user.activated?
+    assert_not user.profile_image.nil?
+    assert_equal(user.name, "Example User")
+  end
+
 end
