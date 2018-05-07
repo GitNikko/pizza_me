@@ -1,8 +1,8 @@
 <% provide(:title, "Edit profile") %>
-<h1>Update your profile</h1>
+<h1 id="signup-header">Update your profile</h1>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-4 col-md-offset-4 edit-form">
     <%= form_for(@user) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
@@ -15,15 +15,12 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "Confirm Password" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <%= f.submit "Save changes", class: "btn btn-primary edit-submit" %>
     <% end %>
-
-    <div class="avatar-edit">
-      <%= image_tag @user.profile_image %>
-      <a href="http://gravatar.com/emails" target="_blank">change</a>
-    </div>
+    <div class="delete-link"><%= link_to "Delete my account", @user, method: :delete,
+                    data: { confirm: "Are you sure you want to delete this account?" } %></div>
   </div>
 </div>

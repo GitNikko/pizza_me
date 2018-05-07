@@ -139,7 +139,7 @@ h2 {
 				font-size: 2.5em;
 				color: $pizzame-blue;
 			}
-		}		
+		}
 	}
 	.avatar{
 		border-radius: 50%;
@@ -315,6 +315,17 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+.edit-submit{
+	margin-bottom: 20px;
+	background-color: $pizzame-blue;
+	border-color: $pizzame-blue;
+}
+.delete-link{
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
 #error_explanation {
   color: red;
   ul {
@@ -432,7 +443,7 @@ input {
 	.yelp-span{
 		font-size: 1.3em;
 		color: grey;
-	}	
+	}
 }
 .each-review{
 	//border: 1px solid #cccccc;
