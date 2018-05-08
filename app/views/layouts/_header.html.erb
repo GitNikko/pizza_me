@@ -5,17 +5,17 @@
 	  <%= link_to "PizzaMe", root_path, class: "navbar-brand"%>
     </div>
 	<!--SEARCH BAR-->
-	<div class="navbar-search-div hidden-xs">	
+	<div class="navbar-search-div hidden-xs">
 		<span class="glyphicon glyphicon-search nav-search-icon" aria-hidden="true"></span>
-	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form", 
+	  <%= form_tag(restaurants_index_path, :method => "get", id: "search-form",
 	  										class: "form-inline nav-form") do %>
 	  <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control navbar-search" %>
-	  <%= select_tag(:state, options_for_select(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT']), 
+	  <%= select_tag(:state, options_for_select(['NSW', 'VIC', 'QLD', 'WA', 'SA', 'TAS', 'NT', 'ACT']),
 	  												{:class => "nav-state-select"}) %>
 		<% end %>
 	</div>
 	<!--NAVIGATION LINKS-->
-	
+
 	<ul class="navbar-user-links navbar-right">
 		<% if logged_in? %>
 		<li class="login-nav hidden-xs"><%= current_user.name %></li>
@@ -28,7 +28,7 @@
 		<li class="social-parent">
 			<%= link_to "", "/auth/facebook", class: "fa fa-facebook-square fa-3x social-icons hidden-xs" %>
 		</li>
-		<% end %>	
+		<% end %>
 		<!--DROPDOWN MENU-->
 		<li><button type="button" class="btn btn-default dropdown-toggle menu-button" data-toggle="dropdown" 						aria-haspopup="true" aria-expanded="false">
   		  <span class="fa fa-align-justify fa-3x"></span></button>
@@ -36,13 +36,11 @@
 	            <li><a href="/">Pizza</a></li>
 							<% if logged_in? %>
 								<li><%= link_to "Profile", current_user %></li>
-								<% unless current_user.oauth_login? %>
 								<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-								<% end %>
 								<% if current_user.admin? %>
 									<li><%= link_to "All users", users_path %></li>
 								<% end %>
-								<li role="separator" class="divider"></li>	
+								<li role="separator" class="divider"></li>
 								<li><a href="/logout" data-method="delete">Log out</a></li>
 							<% else %>
 							<li role="separator" class="divider"></li>
@@ -50,7 +48,7 @@
 							<li><%= link_to "Signup", signup_path %></li>
 							<% end %>
 	          </ul>
-		</li>	
+		</li>
 	</ul>
   </nav>
   <div class="container-fluid sub-nav">
