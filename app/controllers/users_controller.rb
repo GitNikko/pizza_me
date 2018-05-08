@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :index
-  before_action :correct_or_admin, only: :destroy
+  before_action :correct_or_admin, only: [:destroy, :show]
 
   def index
     @users = User.paginate(page: params[:page])
@@ -78,7 +78,7 @@ class UsersController < ApplicationController
         redirect_to(root_url)
       end
     end
-    # Users can only delete their own account unless admin
+    # Users can only delete/show their own account unless admin
     def correct_or_admin
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user) || current_user.admin?

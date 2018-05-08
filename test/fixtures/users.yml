@@ -1,4 +1,5 @@
 nicholas:
+  id: 1
   name: Nicholas Hunt
   email: nic@example.com
   password_digest: <%= User.digest('password') %>
@@ -8,13 +9,14 @@ nicholas:
   activated_at: <%= Time.zone.now %>
 
 archer:
+  id: 2
   name: Sterling Archer
   email: duchess@example.gov
   password_digest: <%= User.digest('password') %>
   profile_image: "https://cdn4.iconfinder.com/data/icons/food-and-drink-1-2/64/pizza-food-italian-meal-256.png"
   activated: true
   activated_at: <%= Time.zone.now %>
-  
+
 lana:
   name: Lana Kane
   email: hands@example.gov
